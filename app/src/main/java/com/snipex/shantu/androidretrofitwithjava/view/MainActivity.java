@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+import com.bumptech.glide.Glide;
 import com.snipex.shantu.androidretrofitwithjava.R;
 import com.snipex.shantu.androidretrofitwithjava.adapter.ArticleAdapter;
 import com.snipex.shantu.androidretrofitwithjava.model.Article;
@@ -33,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         initialization();
 
         getMoviesArticle();
+
+
     }
 
     private void initialization() {

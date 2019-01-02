@@ -6,14 +6,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.snipex.shantu.androidretrofitwithjava.R;
 import com.snipex.shantu.androidretrofitwithjava.model.Article;
 
 import java.util.ArrayList;
 
-public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHolder>  {
+public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHolder> {
 
     private Context _context;
     ArrayList<Article> articleArrayList;
@@ -34,8 +36,12 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
     public void onBindViewHolder(@NonNull ArticleAdapter.ViewHolder viewHolder, int i) {
         Article article = articleArrayList.get(i);
         viewHolder.tvTitle.setText(article.getTitle());
-        viewHolder.tvAuthor.setText(article.getAuthor());
+        viewHolder.tvAuthor.setText(article.getAuthor() + " | " + "Published - " + article.getPublishedAt());
         viewHolder.tvDescription.setText(article.getDescription());
+
+        Glide.with(_context)
+                .load(article.getUrlToImage())
+                .into(viewHolder.imgViewArticleCover);
     }
 
     @Override
@@ -47,12 +53,14 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         private final TextView tvTitle;
         private final TextView tvDescription;
         private final TextView tvAuthor;
+        private final ImageView imgViewArticleCover;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
             tvAuthor = (TextView) itemView.findViewById(R.id.tvAuthor);
             tvDescription = (TextView) itemView.findViewById(R.id.tvDescription);
+            imgViewArticleCover = (ImageView) itemView.findViewById(R.id.imgViewArticleCover);
         }
     }
 }
