@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AndroidRetrofitWithJava</string>
+    <string name="api_key">079dac74a5f94ebdb990ecf61c8854b7</string>
+    <string name="api_query_movies">movies</string>
 </resources>
