@@ -7,6 +7,9 @@ In this project we will build movies article app using <B>Retrofit</B>
 ### App Features
 * Showing movies article from [News Api](https://newsapi.org)
 
+## App demo 
+<img src="images/app_demo.png">
+
 ## Contributing
 
 Anyone can contribute in this project.
